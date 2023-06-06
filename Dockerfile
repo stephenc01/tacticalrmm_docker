@@ -8,4 +8,8 @@ RUN apt update && \
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
     echo "deb http://apt.postgresql.org/pub/repos/apt focal-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
     apt update && apt-get clean && \
+    curl -o /install.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/install.sh && \
+    curl -o /backup.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/backup.sh && \
+    curl -o /restore.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/restore.sh && \
+    curl -o /update.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/update.sh && \
     useradd -m -G sudo -s /bin/bash tactical
