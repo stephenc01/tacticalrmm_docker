@@ -5,12 +5,12 @@ ENV numprocs=$(nproc)
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y upgrade && \
-    apt install -y curl wget dirmngr gnupg lsb-release gnupg software-properties-common certbot openssl nginx gcc g++ make build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev ca-certificates redis git postgresql-14 && \
     curl -fsSL https://pgp.mongodb.com/server-6.0.pub | gpg --dearmor -o /usr/share/keyrings/mongodb-server-6.0.gpg && \
     echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-6.0.gpg ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/6.0 multiverse" | tee /etc/apt/sources.list.d/mongodb-org-6.0.list && \
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
     echo "deb http://apt.postgresql.org/pub/repos/apt focal-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
     curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt install -y curl wget dirmngr gnupg lsb-release gnupg software-properties-common certbot openssl nginx gcc g++ make build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev libbz2-dev ca-certificates redis git postgresql-14 && \
     apt update && apt install -y nodejs mongodb-org && npm install -g npm && \
     apt-get clean && \
     wget https://www.python.org/ftp/python/${PYTHON_VER}/Python-${PYTHON_VER}.tgz && \
