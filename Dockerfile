@@ -13,3 +13,4 @@ RUN apt update && \
     curl -o /restore.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/restore.sh && \
     curl -o /update.sh https://raw.githubusercontent.com/amidaware/tacticalrmm/master/update.sh && \
     useradd -m -G sudo -s /bin/bash tactical
+RUN /install.sh
